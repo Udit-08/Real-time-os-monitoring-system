@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-Time Process Monitoring Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Operations Console</p>
+          <h1>Real-Time Process Monitoring Dashboard</h1>
+          <p class="hero-copy">
+            Track machine health, resource pressure, and active workloads from a
+            single live dashboard.
+          </p>
+        </div>
+        <div class="hero-status">
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            <span>Live feed</span>
+          </div>
+          <p id="last-updated">Refreshing...</p>
+        </div>
+      </header>
+
+      <main class="dashboard-grid">
+        <section class="panel panel-highlight">
+          <div class="panel-header">
+            <h2>System Summary</h2>
+            <span id="hostname" class="badge">Detecting...</span>
+          </div>
+          <div class="summary-grid">
+            <article>
+              <span>Platform</span>
+              <strong id="platform">-</strong>
+            </article>
+            <article>
+              <span>Boot Time</span>
+              <strong id="boot-time">-</strong>
+            </article>
+            <article>
+              <span>Uptime</span>
+              <strong id="uptime">-</strong>
+            </article>
+            <article>
+              <span>CPU Cores</span>
+              <strong id="cpu-cores">-</strong>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel metric-panel">
+          <div class="panel-header">
+            <h2>CPU</h2>
+            <strong id="cpu-usage">0%</strong>
+          </div>
+          <div class="meter">
+            <div id="cpu-bar" class="meter-fill"></div>
+          </div>
+          <div class="metric-meta">
+            <span id="cpu-frequency">-</span>
+            <span id="load-average">Load average unavailable</span>
+          </div>
+          <div id="core-list" class="core-list"></div>
+        </section>
+
+        <section class="panel metric-panel">
+          <div class="panel-header">
+            <h2>Memory</h2>
+            <strong id="memory-usage">0%</strong>
+          </div>
+          <div class="meter">
+            <div id="memory-bar" class="meter-fill memory"></div>
+          </div>
+          <div class="metric-meta">
+            <span id="memory-breakdown">-</span>
+          </div>
+        </section>
+
+        <section class="panel metric-panel">
+          <div class="panel-header">
+            <h2>Disk</h2>
+            <strong id="disk-usage">0%</strong>
+          </div>
+          <div class="meter">
+            <div id="disk-bar" class="meter-fill disk"></div>
+          </div>
+          <div class="metric-meta">
+            <span id="disk-breakdown">-</span>
+          </div>
+        </section>
+
+        <section class="panel metric-panel">
+          <div class="panel-header">
+            <h2>Network</h2>
+            <strong id="network-total">0 MB</strong>
+          </div>
+          <div class="network-stats">
+            <article>
+              <span>Sent</span>
+              <strong id="network-sent">-</strong>
+            </article>
+            <article>
+              <span>Received</span>
+              <strong id="network-received">-</strong>
+            </article>
+            <article>
+              <span>Packets Out</span>
+              <strong id="packets-sent">-</strong>
+            </article>
+            <article>
+              <span>Packets In</span>
+              <strong id="packets-received">-</strong>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel panel-wide">
+          <div class="panel-header">
+            <h2>Top Active Processes</h2>
+            <span id="process-count" class="badge">0 processes</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Process</th>
+                  <th>PID</th>
+                  <th>CPU</th>
+                  <th>Memory</th>
+                  <th>Status</th>
+                  <th>Started</th>
+                </tr>
+              </thead>
+              <tbody id="process-table">
+                <tr>
+                  <td colspan="6" class="empty-state">Loading process activity...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
